@@ -1,0 +1,12 @@
+###
+POST https://localhost:5001/api/formaPagamento/create
+Content-Type: application/json
+
+{
+    "Descricao": "Cartão de Débito",
+    "Prazo": "A VISTA"
+}
+
+###
+GET https://localhost:5001/api/formaPagamento/list
+
