@@ -1,5 +1,6 @@
 
 using System.Linq;
+using System.Collections.Generic;
 using API.Data;
 using API.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -21,6 +22,7 @@ namespace API.Controllers
         public IActionResult Create([FromBody] Venda venda)
         {
             venda.FormaPagamento = _context.FormaPagamento.Find(venda.FormaPagamento);
+            // List<ItemVenda> itens =  _context.ItemVenda.Find(venda.CarrinhoId);
             _context.Vendas.Add(venda);
             _context.SaveChanges();
             return Created("", venda);
