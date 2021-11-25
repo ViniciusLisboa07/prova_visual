@@ -3,11 +3,11 @@ POST https://localhost:5001/api/item/create
 Content-Type: application/json
 
 {
-    "ProdutoId" : 9,
+    "ProdutoId" : 1,
     "Quantidade" : 1,
     "Preco" : 3.5,
-    "CarrinhoId" : "f34e722e-bb9a-446a-998b-fa080df9ac1d"
+    "CarrinhoId" : "c1aec20e-3575-415d-93d9-940a52cca45b"
 }
 
-### Listar todas as categorias
-GET https://localhost:5001/api/categoria/list
+### Listar da Venda
+GET https://localhost:5001/api/item/getbycartid/b7300610-debe-4512-b1cd-47b80d6474fe

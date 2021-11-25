@@ -22,7 +22,7 @@ namespace API.Controllers
         [Route("create")]
         public IActionResult Create([FromBody] ItemVenda item)
         {
-            if (String.IsNullOrEmpty(item.CarrinhoId))
+           if (String.IsNullOrEmpty(item.CarrinhoId))
             {
                 item.CarrinhoId = Guid.NewGuid().ToString();
             }
