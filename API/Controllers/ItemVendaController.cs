@@ -27,7 +27,7 @@ namespace API.Controllers
                 item.CarrinhoId = Guid.NewGuid().ToString();
             }
             item.Produto = _context.Produtos.Find(item.ProdutoId);
-            _context.ItensVenda.Add(item);
+            _context.ItemVenda.Add(item);
             _context.SaveChanges();
             return Created("", item);
         }
@@ -37,7 +37,7 @@ namespace API.Controllers
         [Route("getbycartid/{cartid}")]
         public IActionResult GetByCartId([FromRoute] string cartId)
         {
-            return Ok(_context.ItensVenda
+            return Ok(_context.ItemVenda
                 .Include(item => item.Produto.Categoria)
                 .Where(item => item.CarrinhoId == cartId)
                 .ToList());

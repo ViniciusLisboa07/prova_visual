@@ -1,2 +1,13 @@
 ### Listar vendas
-POST https://localhost:5001/api/venda/list
+GET https://localhost:5001/api/venda/list
+
+
+### Cadastrar uma nova Venda
+POST https://localhost:5001/api/venda/create
+Content-Type: application/json
+
+{
+        "Cliente": "Raphael Marangoni",
+        "FormaPagamentoId": 1,
+        "CarrinhoId": "dawdawda2da2da2da2da2da2d"
+}
