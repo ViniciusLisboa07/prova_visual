@@ -1,0 +1,25 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Finalizar Compra</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <mat-form-field class="input" id="nome">
+            <mat-label for="nome">Nome:</mat-label>
+            <input matInput type="text" name="nome" [(ngModel)]="nome" />
+        </mat-form-field><br>
+        <mat-form-field>
+            <mat-label for="forma">Forma de pagamento:</mat-label>
+            <mat-select name="forma" [(ngModel)]="formaPagamento">
+                <mat-option
+                    *ngFor="let formaDePagamento of formasDePagamentos"
+                    value="{{ formaDePagamento.id }}"
+                >
+                    {{ formaDePagamento.descricao }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <div>
+            <button (click)="cadastrarVenda()" mat-raised-button color="primary">Cadastrar Venda</button>
+        </div>
+    </mat-card-content>
+</mat-card>

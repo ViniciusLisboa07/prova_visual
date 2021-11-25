@@ -39,7 +39,8 @@ namespace API.Controllers
         {
             return Ok(_context.ItensVenda
                 .Include(item => item.Produto.Categoria)
-                .Where(item => item.CarrinhoId == cartId).ToList());
+                .Where(item => item.CarrinhoId == cartId)
+                .ToList());
         }
     }
 }

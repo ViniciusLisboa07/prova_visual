@@ -6,8 +6,11 @@ Content-Type: application/json
     "ProdutoId" : 9,
     "Quantidade" : 1,
     "Preco" : 3.5,
-    "CarrinhoId" : "f34e722e-bb9a-446a-998b-fa080df9ac1d"
+    "CarrinhoId" : "1fd873dc-1e47-4b47-ab23-98f8539bab8f"
 }
 
 ### Listar todas as categorias
 GET https://localhost:5001/api/categoria/list
+
+### Listar carrinho
+GET https://localhost:5001/api/item/getbycartid/1fd873dc-1e47-4b47-ab23-98f8539bab8f
