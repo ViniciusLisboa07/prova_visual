@@ -9,7 +9,7 @@ import { ItemService } from "src/app/services/item.service";
 })
 export class CarrinhoComponent implements OnInit {
     itens: ItemVenda[] = [];
-    colunasExibidas: String[] = ["nome", "preco", "quantidade", "imagem"];
+    colunasExibidas: String[] = ["nome", "preco", "descricao", "quantidade", "imagem"];
     valorTotal!: number;
     constructor(private itemService: ItemService) {}
 
@@ -18,6 +18,7 @@ export class CarrinhoComponent implements OnInit {
         this.itemService.getByCartId(carrinhoId).subscribe((itens) => {
             console.log(itens)
             this.itens = itens;
+            console.log(itens);
             this.valorTotal = this.itens.reduce((total, item) => {
                 return total + item.preco * item.quantidade;
             }, 0);

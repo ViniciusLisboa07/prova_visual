@@ -26,15 +26,18 @@ export class IndexComponent implements OnInit {
     }
 
     adicionar(produto: Produto): void {
+
         let item: ItemVenda = {
             produto: produto,
-            produtoId: produto.id!,
+            produtoId: produto.produtoId!,
             quantidade: 1,
             preco: produto.preco,
             carrinhoId: localStorage.getItem("carrinhoId")! || "",
         };
+
+
         this.itemService.create(item).subscribe((item) => {
-            localStorage.setItem("carrinhoId", item.carrinhoId);
+            localStorage.setItem("carrinhoId", item.carrinhoId!);
             this.router.navigate(["home/carrinho"]);
         });
     }
