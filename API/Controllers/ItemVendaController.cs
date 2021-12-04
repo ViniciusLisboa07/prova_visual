@@ -29,7 +29,7 @@ namespace API.Controllers
             item.Produto = _context.Produtos.Find(item.ProdutoId);
             _context.ItemVenda.Add(item);
             _context.SaveChanges();
-            return Created("", item);
+            return Ok(item);
         }
 
         // GET: api/item/getbycartid/XXXXX-XXXX-XXXXXXXXXXX
@@ -38,7 +38,6 @@ namespace API.Controllers
         public IActionResult GetByCartId([FromRoute] string cartId)
         {
             return Ok(_context.ItemVenda
-                .Include(item => item.Produto.Categoria)
                 .Where(item => item.CarrinhoId == cartId)
                 .ToList());
         }

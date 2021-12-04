@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormaPagamento } from 'src/app/models/forma-pagamento';
+import { Venda } from 'src/app/models/venda';
 import { FormaPagamentoService } from 'src/app/services/forma-pagemento.service';
+import { VendaService } from 'src/app/services/venda.service';
 
 @Component({
   selector: 'app-finalizar',
@@ -13,7 +15,8 @@ export class FinalizarComponent implements OnInit {
   formaPagamento!: FormaPagamento;
   formasDePagamentos: FormaPagamento[] = [];
 
-  constructor(private serviceForma: FormaPagamentoService) { }
+  constructor(private serviceForma: FormaPagamentoService,
+    private ServiceVenda: VendaService) { }
 
   ngOnInit(): void {
     this.serviceForma.list().subscribe((formas) => {
@@ -22,6 +25,13 @@ export class FinalizarComponent implements OnInit {
   }
 
   cadastrarVenda(): void {
-    console.log("teste")
+    let venda: Venda = {
+
+    }
+
+
+    this.ServiceVenda.create(venda).subscribe(() => {
+
+    });
   }
 }

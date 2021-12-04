@@ -21,15 +21,17 @@ namespace API.Controllers
         [Route("create")]
         public IActionResult Create([FromBody] Venda venda)
         {
-            venda.FormaPagamento = _context.FormaPagamento.Find(venda.FormaPagamento);
-            // List<ItemVenda> itens =  _context.ItemVenda.Find(venda.CarrinhoId);
+            venda.FormaPagamento = _context.FormaPagamento.Find(venda.FormaPagamentoId);
+            List<ItemVenda> itens =  _context.ItemVenda.Where(item => item.CarrinhoId == venda.CarrinhoId).ToList();
+            venda.Itens = itens;
             _context.Vendas.Add(venda);
             _context.SaveChanges();
-            return Created("", venda);
+            return Ok(venda);
         }
 
         //GET: api/venda/list
         //ALTERAR O MÉTODO PARA MOSTRAR TODOS OS DADOS DA VENDA E OS DADOS RELACIONADOS
+        [HttpGet]
         [Route("list")]
         public IActionResult List() =>
             Ok(_context.Vendas.Include(venda => venda.FormaPagamento).ToList());

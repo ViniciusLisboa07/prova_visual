@@ -9,5 +9,5 @@ Content-Type: application/json
 {
         "Cliente": "Raphael Marangoni",
         "FormaPagamentoId": 1,
-        "CarrinhoId": "dawdawda2da2da2da2da2da2d"
+        "CarrinhoId": "c1aec20e-3575-415d-93d9-940a52cca45b"
 }
