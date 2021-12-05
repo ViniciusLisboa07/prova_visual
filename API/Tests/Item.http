@@ -10,4 +10,4 @@ Content-Type: application/json
 }
 
 ### Listar da Venda
-GET https://localhost:5001/api/item/getbycartid/c1aec20e-3575-415d-93d9-940a52cca45b
+GET https://localhost:5001/api/item/getbycartid/1fd873dc-1e47-4b47-ab23-98f8539bab8f
